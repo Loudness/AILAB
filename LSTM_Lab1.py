@@ -129,8 +129,8 @@ def run_lstmLab1():
 
     # And run it!
     #Play with these number depending on result
-    EPOCHS=10   #Up to 1000 is fair to test with.
-    BATCH_SIZE=50
+    EPOCHS=200   #Up to 1000 is fair to test with.
+    BATCH_SIZE=60
     model.fit(X_train, y_train, epochs=EPOCHS, batch_size=BATCH_SIZE, verbose=1)
 
     ####################################################################################################
