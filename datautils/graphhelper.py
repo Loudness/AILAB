@@ -16,6 +16,8 @@ def createGraphTEST(folder, inputdata=0):
 #The method should save an image. This will be used afterwards in the HTML output. 
 def createGraphLSTM_Lab1(imagename, window_size, original_data_set, train_test_split,train_predict, test_predict):
     
+    #enable override of seaborn over pyplot/matplotlib
+    sns.set()
     
     #plt.figure(figsize=(30,50))
     plt.tight_layout(pad=15)
