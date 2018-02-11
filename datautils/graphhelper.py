@@ -19,7 +19,7 @@ def createGraphLSTM_Lab1(imagename, window_size, original_data_set, train_test_s
     #enable override of seaborn over pyplot/matplotlib
     sns.set()
     
-    #plt.figure(figsize=(30,50))
+    #plt.figure(figsize=(4,2))
     plt.tight_layout(pad=15)
     # plot original series
     plt.plot(original_data_set,color = 'k')
@@ -37,13 +37,39 @@ def createGraphLSTM_Lab1(imagename, window_size, original_data_set, train_test_s
     plt.ylabel('(normalized) price of SPY')
     #plt.legend(['original series','training fit','testing fit'],loc='center left', bbox_to_anchor=(1, 0.5))
     plt.legend(['original series','training fit','testing fit'],loc='lower center', bbox_to_anchor=(1, 0.5))
-    	
+    	         
+    
+    #fig = plt.gcf()
+    #DefaultSize = fig.get_size_inches()
+    #plt.set_figsize_inches( (DefaultSize[0]*2, DefaultSize[1]) )
+    #fig.set_size_inches( (DefaultSize[0]*2, DefaultSize[1]), forward=False )
+
+  
    
     #plt.savefig(imagename, bbox_inches='tight',  dpi = (400))         #bbox_inches is a hack to get the legend fit in the image
-    plt.savefig(imagename)         #bbox_inches is a hack to get the legend fit in the image
+    plt.savefig(imagename)          
     #plt.show()
     #fig = plt.figure()
     #plt.close(fig) 
     #fig.savefig(imagename)
-   
+
+""" Peek into MNIST dataset
+def showMNIST_Images(MNISTData):
+    
+    #import MLDatasets: MNIST
+    from IterTools import product
+
+    x, y = MNISTData.testdata()
+    nrow, ncol = 4, 4
+    fig = figure("plot_mnist",figsize=(6,6))
+    for (i, (c, r)) in enumerate(product(1:ncol, 1:nrow))
+       subplot(nrow, ncol, i)
+       plt.imshow(x[:,:,i]', cmap="gray") #notice the transpose
+       ax = gca()
+       ax[:xaxis][:set_visible](false)
+       ax[:yaxis][:set_visible](false)
+    end
+    tight_layout(w_pad=-1, h_pad=-1, pad=-0.5)
+    plt.savefig("TEST.PNG")
+"""   
     
