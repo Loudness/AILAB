@@ -22,15 +22,14 @@ def createGraphLSTM_Lab1(imagename, window_size, original_data_set, train_test_s
     #plt.figure(figsize=(4,2))
     plt.tight_layout(pad=15)
     # plot original series
-    plt.plot(original_data_set,color = 'k')
+    plt.plot(original_data_set,color = 'k', linewidth=1)
     
-
     # plot training set prediction
     split_pt = train_test_split + window_size 
-    plt.plot(np.arange(window_size,split_pt,1),train_predict,color = 'b')
+    plt.plot(np.arange(window_size,split_pt,1),train_predict,color = 'b', linewidth=1)
 
     # plot testing set prediction
-    plt.plot(np.arange(split_pt,split_pt + len(test_predict),1),test_predict,color = 'r')
+    plt.plot(np.arange(split_pt,split_pt + len(test_predict),1),test_predict,color = 'r', linewidth=1)
 
     # pretty up graph
     plt.xlabel('Days')
@@ -43,9 +42,6 @@ def createGraphLSTM_Lab1(imagename, window_size, original_data_set, train_test_s
     #DefaultSize = fig.get_size_inches()
     #plt.set_figsize_inches( (DefaultSize[0]*2, DefaultSize[1]) )
     #fig.set_size_inches( (DefaultSize[0]*2, DefaultSize[1]), forward=False )
-
-  
-   
     #plt.savefig(imagename, bbox_inches='tight',  dpi = (400))         #bbox_inches is a hack to get the legend fit in the image
     plt.savefig(imagename)          
     #plt.show()
@@ -53,7 +49,7 @@ def createGraphLSTM_Lab1(imagename, window_size, original_data_set, train_test_s
     #plt.close(fig) 
     #fig.savefig(imagename)
 
-""" Peek into MNIST dataset
+""" Peek into MNIST dataset     (saved)
 def showMNIST_Images(MNISTData):
     
     #import MLDatasets: MNIST
