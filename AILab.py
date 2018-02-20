@@ -18,6 +18,7 @@
 
 import os
 import msvcrt as m
+from datautils import sysinfo
 import LSTM_Lab1
 import GAN_Lab1
 
@@ -62,6 +63,7 @@ while ans:
     2.Run GAN Lab 1  - Generate images from Fashion Images.
     3.Test HTML output
     4.Next test here
+    9.Show System Info
     0.Exit/Quit
     """)
     ans=input("What would you like to do? ")
@@ -90,6 +92,13 @@ while ans:
       print("\nPress Enter...")
       wait()
       cls()
+    elif ans=="9":
+      print ("Fetching system info..")
+      sysinfo.showSystemInfo()
+      print("\nPress Enter...")
+      wait()
+      cls()
+
     elif ans=="0":
       print("\nGoodbye") 
       ans = None
