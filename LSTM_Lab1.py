@@ -17,6 +17,7 @@
 #/Aries
 
 import os
+import time
 from dataload import csvloader
 from datautils import filehelper
 from datautils import graphhelper
@@ -84,8 +85,10 @@ def run_lstmLab1():
    # We should chop it up in "windows" where it learns what the next value(s) is after the window.
    #  
    ####################################################################################################
-    
-    WINDOW_SIZE = 7  #Tweak this. Now it is 7 days window.
+    #Start taking time
+    global_start_time = time.time() 
+
+    WINDOW_SIZE = 10  #Tweak this. Now it is 7 days window.
     X,y = transforms.window_transform_series(series = normalizedData,window_size = WINDOW_SIZE)
 
 
@@ -154,6 +157,9 @@ def run_lstmLab1():
     print('Testing error = ' + str(testing_error))
     
 
+    #Stop taking time
+    timeTaken = time.time() - global_start_time
+
     ####################################################################################################
     # Part 7. Show results!
     # Using helper methods to automagically create a subfolder with an HTML showing results.
@@ -162,9 +168,21 @@ def run_lstmLab1():
     
     resultFolder = filehelper.generateNewResultFolder() #creates new foldername based on timestamp and filename
     
-
+    
     #TODO: Add error results (predictions), time taken, computername (os indpendent)
-    thoughts = "Yes, I believe that it was a <b>great</b> experiment "
+    thoughts = "Yes, I believe that it was a <b>great</b> experiment </BR> "
+    thoughts += "Training time in seconds:<B>"  + str(timeTaken)  + "</B></BR>"
+    thoughts += "Window size peek:<B>" + str(WINDOW_SIZE) + "</B></BR>"
+    thoughts += "Training error:<B>" + str(training_error)  + "</B></BR>"
+    thoughts += "Testing error:<B>"  + str(testing_error)  + "</B></BR>"
+    thoughts += "Total days input:<B>"  + str(len(normalizedData))  + "</B></BR>"
+    thoughts += "Days used for training:<B>"  + str(len(train_predict))  + "</B></BR>"
+    thoughts += "Days used for testing:<B>"  + str(len(test_predict))  + "</B></BR>"
+
+  
+
+
+
     
     #Graphs are a bit harder to make generic, so custom for now.
     GRAPHFILENAME = "result.png"
