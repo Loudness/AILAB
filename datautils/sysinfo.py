@@ -51,10 +51,9 @@ def showSystemInfo():
 
 
     try:
-        #import tensorflow as tf
-        #sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+        print("\nShowing CPU (and optional GPU info if properly set up) used by tensorflow")
         from tensorflow.python.client import device_lib
-        print("- Tensorflow GPU/CPU INFO:" + device_lib.list_local_devices())
+        print(device_lib.list_local_devices())
     except:
         print("\nSkipped tensorflow CPU/GPU check")
 
