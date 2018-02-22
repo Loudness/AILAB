@@ -35,6 +35,9 @@
     <Compile Include="datautils\outputhelper.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GAN_Lab1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="LSTM_Lab1.py">
       <SubType>Code</SubType>
     </Compile>
