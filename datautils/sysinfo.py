@@ -1,11 +1,19 @@
 
 import os
 import platform 
-
+ 
 
 def showSystemInfo():
 
     print("\n##### Installed System overview #####\n")
+
+    apa = memoryCheck()
+    if (os.name =='nt'):
+        print("Installed Memory: " + apa.windowsRam())
+    else:
+        print("Installed Memory: " + apa.linuxRam())
+
+    print()
 
     try:
         import sys 
@@ -56,6 +64,69 @@ def showSystemInfo():
         print(device_lib.list_local_devices())
     except:
         print("\nSkipped tensorflow CPU/GPU check")
+
+
+
+
+
+class memoryCheck():
+    """Checks memory of a given system"""
+
+     
+    def windowsRamOLD(self):
+        """Uses Windows API to check RAM in this OS"""
+        kernel32 = windll.kernel32
+        #kernel32 = ctypes.windll.kernel32
+        #c_ulong = ctypes.c_ulong
+        class MEMORYSTATUS(Structure):
+            _fields_ = [
+                ("dwLength", c_ulong),
+                ("dwMemoryLoad", c_ulong),
+                ("dwTotalPhys", c_ulong),
+                ("dwAvailPhys", c_ulong),
+                ("dwTotalPageFile", c_ulong),
+                ("dwAvailPageFile", c_ulong),
+                ("dwTotalVirtual", c_ulong),
+                ("dwAvailVirtual", c_ulong)
+            ]
+        memoryStatus = MEMORYSTATUS()
+        memoryStatus.dwLength = sizeof(MEMORYSTATUS)
+        kernel32.GlobalMemoryStatus(byref(memoryStatus))
+ 
+        return int(memoryStatus.dwTotalPhys/1024**2)
+
+    def windowsRam(self):
+        import ctypes
+        kernel32 = ctypes.windll.kernel32
+        c_ulong = ctypes.c_ulong
+        class MEMORYSTATUS(ctypes.Structure):
+            _fields_ = [
+                ('dwLength', c_ulong),
+                ('dwMemoryLoad', c_ulong),
+                ('dwTotalPhys', c_ulong),
+                ('dwAvailPhys', c_ulong),
+                ('dwTotalPageFile', c_ulong),
+                ('dwAvailPageFile', c_ulong),
+                ('dwTotalVirtual', c_ulong),
+                ('dwAvailVirtual', c_ulong)
+            ]
+ 
+        
+        memoryStatus = MEMORYSTATUS()
+        memoryStatus.dwLength = ctypes.sizeof(MEMORYSTATUS)
+        kernel32.GlobalMemoryStatus(ctypes.byref(memoryStatus))
+        #totalRam = memoryStatus.dwTotalPhys / (1024*1024)
+        #availRam = memoryStatus.dwAvailPhys / (1024*1024)
+        #There might be a bug here.. Please recheck.
+        totalRam = (memoryStatus.dwTotalPhys * memoryStatus.dwLength) / (1024*1024)
+        availRam = totalRam * (memoryStatus.dwMemoryLoad/100)   #in percent of used memory
+        
+        return ("\nTotal Ram:" + str(round(totalRam,2)) + " MiB" + "\nAvailable Ram:" +  str(round(availRam,2)) + "MiB " ) 
+ 
+    def linuxRam(self):
+        """Returns the RAM of a linux system"""
+        totalMemory = os.popen("free -m").readlines()[1].split()[1]
+        return (totalMemory + " MiB")
 
     """  Save this for later. 
     try:
