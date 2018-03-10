@@ -12,6 +12,8 @@
     <OutputPath>.</OutputPath>
     <Name>AILab</Name>
     <RootNamespace>LSTMLab</RootNamespace>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,6 +26,9 @@
   <ItemGroup>
     <Compile Include="AILab.py" />
     <Compile Include="dataload\csvloader.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="dataload\simpleloader.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="dataload\__init__.py">
@@ -48,6 +53,9 @@
     <Compile Include="datautils\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MachineTransation1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="models\RNN\sequential.py">
       <SubType>Code</SubType>
     </Compile>
@@ -66,19 +74,34 @@
     <Compile Include="preprocessing\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="tests\machineTranslationTests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dataload\" />
     <Folder Include="datautils\" />
     <Folder Include="data\" />
+    <Folder Include="data\fashion\" />
+    <Folder Include="data\translation\" />
     <Folder Include="models\" />
     <Folder Include="models\RNN\" />
+    <Folder Include="tests\" />
     <Folder Include="X:\Dev\Neiron\src\LSTMLab\AILab\datautils\" />
     <Folder Include="X:\Dev\Neiron\src\LSTMLab\AILab\data\" />
     <Folder Include="preprocessing\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\fashion\t10k-images-idx3-ubyte.gz" />
+    <Content Include="data\fashion\t10k-labels-idx1-ubyte.gz" />
+    <Content Include="data\fashion\train-images-idx3-ubyte.gz" />
+    <Content Include="data\fashion\train-labels-idx1-ubyte.gz" />
     <Content Include="data\spy.csv" />
+    <Content Include="data\translation\small_vocab_en" />
+    <Content Include="data\translation\small_vocab_fr" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

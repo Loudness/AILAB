@@ -17,13 +17,16 @@
 # Install dependencies with 'pip install -r requirements.txt'
 
 import os
+import sys
 import msvcrt as m
 from datautils import sysinfo
 import LSTM_Lab1
 import GAN_Lab1
+import MachineTransation1
 
 if (os.name=='nt'):
     import msvcrt as myGetch
+    sys.stdout = open(sys.stdout.fileno(), mode='w', encoding='utf8', buffering=1)
 else:
     import getch as myGetch
 
@@ -59,9 +62,9 @@ while ans:
     print("""
     Menu:
     ------------
-    1.Run LSTM Lab 1 - Time series Prediction based on 2500 days on SPY: SPDR S&P 500
-    2.Run GAN Lab 1  - Generate images from Fashion Images.
-    3.Test HTML output
+    1.Run LSTM Lab  - Time series Prediction based on 2500 days on SPY: SPDR S&P 500
+    2.Run GAN Lab   - Generate images from Fashion Images.
+    3.Run Statistical Machine Translation Lab   - Translate from English to French
     4.Next test here
     9.Show System Info
     0.Exit/Quit
@@ -80,8 +83,8 @@ while ans:
       wait()
       cls()
     elif ans=="3":
-      LSTM_Lab1.createGraph()
-      LSTM_Lab1.testResultToBrowser()
+      MachineTransation1.run_machineTranslationLab1()
+      
       print("\nPress Enter...")
       wait()
       cls()
@@ -89,6 +92,12 @@ while ans:
       print ("Test seaborn output")
       LSTM_Lab1.run_example()
       print("\nNext lab here")
+      print("\nPress Enter...")
+      wait()
+      cls()
+    elif ans=="5":
+      LSTM_Lab1.createGraph()
+      LSTM_Lab1.testResultToBrowser()
       print("\nPress Enter...")
       wait()
       cls()
