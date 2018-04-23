@@ -74,6 +74,9 @@
     <Compile Include="preprocessing\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SentimentAnalysis1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tests\machineTranslationTests.py">
       <SubType>Code</SubType>
     </Compile>

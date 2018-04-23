@@ -23,6 +23,7 @@ from datautils import sysinfo
 import LSTM_Lab1
 import GAN_Lab1
 import MachineTransation1
+import SentimentAnalysis1
 
 if (os.name=='nt'):
     import msvcrt as myGetch
@@ -64,8 +65,9 @@ while ans:
     ------------
     1.Run LSTM Lab  - Time series Prediction based on 2500 days on SPY: SPDR S&P 500
     2.Run GAN Lab   - Generate images from Fashion Images.
-    3.Run Statistical Machine Translation Lab   - Translate from English to French
-    4.Next test here
+    3.Run Statistical Machine Translation Lab  - Translate from English to French
+    4.Run Sentiment Analysis Lab - Write a positive or negative movie review - Base on IMDB data
+    5.Next lab here
     9.Show System Info
     0.Exit/Quit
     """)
@@ -89,13 +91,19 @@ while ans:
       wait()
       cls()
     elif ans=="4":
+      SentimentAnalysis1.run_sentimentLab1()
+      print("\nFinished Sentiment analysis lab.")
+      print("\nPress Enter...")
+      wait()
+      cls()
+    elif ans=="5":
       print ("Test seaborn output")
       LSTM_Lab1.run_example()
       print("\nNext lab here")
       print("\nPress Enter...")
       wait()
       cls()
-    elif ans=="5":
+    elif ans=="6":
       LSTM_Lab1.createGraph()
       LSTM_Lab1.testResultToBrowser()
       print("\nPress Enter...")
