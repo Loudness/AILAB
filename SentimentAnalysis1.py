@@ -257,6 +257,11 @@ def read_imdb_data(data_dir='data/imdb-reviews'):
     
     """
 
+    #Data is from http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
+    #Please read http://ai.stanford.edu/~amaas/data/sentiment/ for details. 
+    #TODO: add automagic download of data if it does not exist.
+
+
     # Data, labels to be returned in nested dicts matching the dir. structure
     data = {}
     labels = {}
