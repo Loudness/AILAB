@@ -29,9 +29,11 @@ And follow the menu choices
 
 ### Labs included for now ###
 
-* **LSTM Lab 1** - Time series Prediction based on 2500 days on SPY: SPDR S&P 500
-* **GAN Lab 1** - Using Generative Adversarial Networks - Generate Fashion Images based on the Fashion MNIST Database
-* More to come...
+* **LSTM Lab** - Time series Prediction based on 2500 days on SPY: SPDR S&P 500
+* **GAN Lab** - Using Generative Adversarial Networks - Generate Fashion Images based on the Fashion MNIST Database
+* **Machine Translation Lab** Translate from English to French
+* **Sentiment Analysis Lab** Write a positive or negative movie review - Base on IMDB review data
+* More labs to come...
 
 
 Also, there is a simplistic system info choice where you can, amongst other info, check if GPU is enabled in tensorflow.
