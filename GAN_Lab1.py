@@ -33,6 +33,7 @@
 #/Aries
 
 from dataload import csvloader
+from dataload import fashiondatadownload
 from datautils import filehelper
 from datautils import graphhelper
 from datautils import outputhelper 
@@ -70,11 +71,16 @@ def loadData():
     #Split Training 60 000 images and test 10 000 images
     #Overridden path to load Zalando instead of standard NMIST 
     #If it does not exist, download it.
+    fashiondatadownload.FashionDownload.downloadIfNotExist()
+
     ZALANDO_DATA = 'data/fashion'
     if(os.path.isdir(ZALANDO_DATA)):
         data = input_data.read_data_sets(ZALANDO_DATA)
     else:
-        data = input_data.read_data_sets(ZALANDO_DATA, source_url='http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/')   #Or better https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion
+        print("Fashion Data does not exist!")
+        data = None 
+
+        #data = input_data.read_data_sets(ZALANDO_DATA, source_url='http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/')   #Or better https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion
 
     return data
 
@@ -143,6 +149,10 @@ def run_GANLab1():
 
     
     inData = loadData() #Part 1 call
+    if inData is None:
+        print("No fashion data exists! Please download before continuing!!")
+        return;
+    
     resultFolder = filehelper.generateNewResultFolder() #creates new foldername based on timestamp and filename  under results/  
     
 
