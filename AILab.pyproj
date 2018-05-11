@@ -28,6 +28,9 @@
     <Compile Include="dataload\csvloader.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="dataload\fashiondatadownload.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="dataload\simpleloader.py">
       <SubType>Code</SubType>
     </Compile>
