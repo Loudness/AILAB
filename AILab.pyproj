@@ -96,8 +96,6 @@
     <Folder Include="models\" />
     <Folder Include="models\RNN\" />
     <Folder Include="tests\" />
-    <Folder Include="X:\Dev\Neiron\src\LSTMLab\AILab\datautils\" />
-    <Folder Include="X:\Dev\Neiron\src\LSTMLab\AILab\data\" />
     <Folder Include="preprocessing\" />
   </ItemGroup>
   <ItemGroup>
