@@ -44,4 +44,23 @@ A visual studio project file for windows is included, but the project should wor
 /Aries
 
 ### Screenshots ###
+
+**LSTM LAB**
+
+- Training time in seconds:30.18
+- Window size peek:10
+- Training error:0.00013399767728792893
+- Testing error:0.00018534520819164885
+- Total days input:2515
+- Days used for training:1670
+- Days used for testing:835
+
 ![LSTM LAB screenshot](./screenshots/LSTMLab.png)
+
+
+**GAN LAB**
+
+
+![GAN LAB screenshot1](./screenshots/GAN_firstsample.png)
+![GAN LAB screenshot2](./screenshots/GAN_generatedSample.png)
+![GAN LAB screenshot2](./screenshots/GAN_losses.png)
