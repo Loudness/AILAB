@@ -42,3 +42,6 @@ A visual studio project file for windows is included, but the project should wor
 
 
 /Aries
+
+### Screenshots ###
+![LSTM LAB screenshot](./screenshots/LSTMLab.png)
