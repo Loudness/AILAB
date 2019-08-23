@@ -2,7 +2,7 @@ matplotlib==3.0.2
 numpy==1.16.3
 seaborn==0.8.1
 pandas==0.24.2
-nltk==3.2.5
+nltk==3.4.5
 Keras==2.1.4
 tensorflow==1.13.1
 beautifulsoup4==4.7.1
